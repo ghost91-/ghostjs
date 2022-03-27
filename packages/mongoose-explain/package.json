@@ -23,6 +23,7 @@
     "format": "prettier --write \"**/*.(js|ts|json|yml)\"",
     "lint:fix": "eslint --ignore-path ../../.eslintignore --ext .ts,.js --fix .",
     "lint": "eslint --ignore-path ../../.eslintignore --ext .ts,.js .",
+    "preCommit": "lint-staged",
     "test": "jest"
   },
   "peerDependencies": {
