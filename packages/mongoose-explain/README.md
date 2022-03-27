@@ -5,11 +5,11 @@ A [mongoose](https://mongoosejs.com/) plugin for logging `.explain()` output of 
 ## Installation
 
 ```sh
-npm install --save-dev @ghostjs/mongoose-explain
+npm install --save @ghostjs/mongoose-explain
 
 # OR
 
-yarn add -D @ghostjs/mongoose-explain
+yarn add @ghostjs/mongoose-explain
 ```
 
 ## Usage
