@@ -2,14 +2,6 @@
   "name": "@ghostjs/mongoose-explain",
   "version": "1.0.2",
   "description": "A mongoose plugin for logging .explain() output of queries",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "contributors": [
-    {
-      "name": "Johannes Loher",
-      "email": "johannes.loher@fg4f.com"
-    }
-  ],
   "keywords": [
     "mongoose",
     "mongodb",
@@ -17,7 +9,23 @@
     "explain",
     "plugin"
   ],
+  "bugs": "https://github.com/ghost91-/ghostjs/issues",
   "license": "MIT",
+  "contributors": [
+    {
+      "name": "Johannes Loher",
+      "email": "johannes.loher@fg4f.com"
+    }
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghost91-/ghostjs/tree/main/packages/mongoose-explain"
+  },
   "scripts": {
     "build": "tsc --build",
     "format": "prettier --write \"**/*.(js|ts|json|yml)\"",
@@ -25,10 +33,6 @@
     "lint": "eslint --ignore-path ../../.eslintignore --ext .ts,.js .",
     "preCommit": "lint-staged",
     "test": "jest"
-  },
-  "peerDependencies": {
-    "mongodb": "^4.3.1",
-    "mongoose": "^6.2.8"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
@@ -49,16 +53,15 @@
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   },
+  "peerDependencies": {
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.2.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "lint-staged": {
     "*.(js|ts)": "eslint --fix",
     "*.(json|yml)": "prettier --write"
-  },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
-  "publishConfig": {
-    "access": "public"
   }
 }
