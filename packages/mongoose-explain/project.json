@@ -33,10 +33,10 @@
         "preset": "conventional",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
         "baseBranch": "main",
-        "postTargets": ["my-project:publish", "my-project:github"]
+        "postTargets": ["mongoose-explain:publish", "mongoose-explain:github"]
       }
     },
-    "deploy": {
+    "publish": {
       "executor": "ngx-deploy-npm:deploy",
       "options": {
         "access": "public"
