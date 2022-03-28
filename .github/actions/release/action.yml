@@ -13,13 +13,15 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Set NPM token
+      shell: bash
+      run: npm config set //registry.npmjs.org/:_authToken ${{ inputs.npm_token }}
+
     - name: Version
       env:
-        NODE_AUTH_TOKEN: ${{ inputs.npm_token }}
         GITHUB_TOKEN: ${{ inputs.github_token }}
       shell: bash
-      run: |
-        npx nx affected --base=last-release --target=version
+      run: npx nx affected --base=last-release --target=version
 
     - name: Tag last-release
       shell: bash
