@@ -21,17 +21,17 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'npm'
 
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
-
       - name: Install dependencies
         run: npm ci
 
-      - name: Version and publish
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set git user
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor}}@users.noreply.github.com"
-          npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
-          npx nx affected --target version
+
+      - name: Release
+        if: github.ref == 'refs/heads/main'
+        uses: ./.github/actions/release
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          npm_token: ${{ secrets.NPM_TOKEN }}
