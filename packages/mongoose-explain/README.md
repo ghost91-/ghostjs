@@ -23,13 +23,23 @@ interface Data {
 }
 
 const schema = new mongoose.Schema<Data>({
-  someProp: String
+  someProp: String,
 });
 
-schema.plugin(explain({
-  // optional options...
-}));
+schema.plugin(
+  explain({
+    // optional options...
+  }),
+);
 ```
+
+## Building
+
+Run `nx build mongoose-explain` to build the library.
+
+## Running unit tests
+
+Run `nx test mongoose-explain` to execute the unit tests via [Jest](https://jestjs.io).
 
 ## License
 

@@ -1,0 +1,54 @@
+{
+  "root": "packages/mongoose-explain",
+  "sourceRoot": "packages/mongoose-explain/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/mongoose-explain",
+        "main": "packages/mongoose-explain/src/index.ts",
+        "tsConfig": "packages/mongoose-explain/tsconfig.lib.json",
+        "assets": ["packages/mongoose-explain/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/mongoose-explain/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/mongoose-explain"],
+      "options": {
+        "jestConfig": "packages/mongoose-explain/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "commitMessageFormat": "chore(${projectName}): release version ${version}",
+        "baseBranch": "main",
+        "postTargets": ["my-project:publish", "my-project:github"]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notes": "${notes}"
+      }
+    }
+  },
+  "tags": []
+}

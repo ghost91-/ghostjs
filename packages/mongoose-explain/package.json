@@ -20,48 +20,9 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/ghost91-/ghostjs/tree/main/packages/mongoose-explain"
   },
-  "scripts": {
-    "build": "tsc --build",
-    "format": "prettier --write \"**/*.(js|ts|json|yml)\"",
-    "lint:fix": "eslint --ignore-path ../../.eslintignore --ext .ts,.js --fix .",
-    "lint": "eslint --ignore-path ../../.eslintignore --ext .ts,.js .",
-    "preCommit": "lint-staged",
-    "test": "jest"
-  },
-  "devDependencies": {
-    "@types/jest": "27.4.1",
-    "@types/node": "16.11.26",
-    "@typescript-eslint/eslint-plugin": "5.16.0",
-    "@typescript-eslint/parser": "5.16.0",
-    "eslint": "8.12.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "jest": "27.5.1",
-    "lint-staged": "12.3.7",
-    "mongodb": "4.4.1",
-    "mongodb-memory-server": "8.4.1",
-    "mongoose": "6.2.8",
-    "prettier": "2.6.1",
-    "semantic-release": "19.0.2",
-    "ts-jest": "27.1.4",
-    "ts-node": "10.7.0",
-    "typescript": "4.6.3"
-  },
-  "peerDependencies": {
-    "mongodb": "^4.3.1",
-    "mongoose": "^6.2.8"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "lint-staged": {
-    "*.(js|ts)": "eslint --fix",
-    "*.(json|yml)": "prettier --write"
-  }
+  "type": "commonjs"
 }

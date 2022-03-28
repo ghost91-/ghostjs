@@ -3,7 +3,7 @@ import mongoose, { Schema, SchemaDefinition, SchemaDefinitionType } from 'mongoo
 
 import type { Document } from 'mongodb';
 
-import { explain } from '../src';
+import { explain } from './mongoose-explain';
 
 interface Data {
   someProp: string;
@@ -64,7 +64,7 @@ describe('explain plugin', () => {
     expect(data[0]).toEqual(expect.objectContaining({ someProp: '42' }));
     expect(results).toHaveLength(1);
     expect(results[0]?.operation).toEqual('find');
-    expect(results[0]?.result.ok).toEqual(1);
+    expect(results[0]?.result['ok']).toEqual(1);
   });
 
   it("passes the explanation to the callback for 'findOne' queries", async () => {
@@ -87,6 +87,6 @@ describe('explain plugin', () => {
     expect(data).toEqual(expect.objectContaining({ someProp: '42' }));
     expect(results).toHaveLength(1);
     expect(results[0]?.operation).toEqual('findOne');
-    expect(results[0]?.result.ok).toEqual(1);
+    expect(results[0]?.result['ok']).toEqual(1);
   });
 });
