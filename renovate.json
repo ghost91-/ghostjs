@@ -1,7 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":automergeAll"
+  "extends": ["config:js-lib", ":automergeAll"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": "^@typescript-eslint",
+      "matchUpdateTypes": ["major", "minor"],
+      "enabled": false
+    }
   ]
 }
