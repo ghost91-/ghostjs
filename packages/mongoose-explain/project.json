@@ -33,6 +33,7 @@
         "preset": "conventional",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
         "baseBranch": "main",
+        "push": true,
         "postTargets": ["mongoose-explain:publish", "mongoose-explain:github"]
       }
     },
