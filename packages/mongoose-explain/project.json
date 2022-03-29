@@ -34,7 +34,7 @@
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
         "baseBranch": "main",
         "push": true,
-        "postTargets": ["mongoose-explain:publish", "mongoose-explain:github"]
+        "postTargets": ["mongoose-explain:github", "mongoose-explain:publish"]
       }
     },
     "publish": {
