@@ -17,9 +17,6 @@
       "email": "johannes.loher@fg4f.com"
     }
   ],
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ghost91-/ghostjs/tree/main/packages/mongoose-explain"

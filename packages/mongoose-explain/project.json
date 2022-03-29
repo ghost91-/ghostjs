@@ -9,7 +9,7 @@
         "outputPath": "dist/packages/mongoose-explain",
         "main": "packages/mongoose-explain/src/index.ts",
         "tsConfig": "packages/mongoose-explain/tsconfig.lib.json",
-        "assets": ["packages/mongoose-explain/*.md"]
+        "assets": ["packages/mongoose-explain/*.md", "packages/mongoose-explain/LICENSE"]
       }
     },
     "lint": {
