@@ -1,6 +1,6 @@
 {
   "name": "@ghostjs/mongoose-explain",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A mongoose plugin for logging .explain() output of queries",
   "keywords": [
     "mongoose",
