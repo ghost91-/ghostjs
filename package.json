@@ -33,7 +33,7 @@
     "lint-staged": "12.3.7",
     "ngx-deploy-npm": "3.1.4",
     "nx": "13.9.6",
-    "prettier": "2.6.1",
+    "prettier": "2.6.2",
     "ts-jest": "27.1.4",
     "typescript": "4.6.3"
   },
