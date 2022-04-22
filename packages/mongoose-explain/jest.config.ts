@@ -1,6 +1,6 @@
 module.exports = {
   displayName: 'mongoose-explain',
-  preset: '../../jest.preset.js',
+
   testEnvironment: 'node',
   globals: {
     'ts-jest': {
@@ -12,4 +12,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/packages/mongoose-explain',
+  preset: '../../jest.preset.ts',
 };

@@ -23,7 +23,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/mongoose-explain"],
       "options": {
-        "jestConfig": "packages/mongoose-explain/jest.config.js",
+        "jestConfig": "packages/mongoose-explain/jest.config.ts",
         "passWithNoTests": true
       }
     },
