@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "esbuild-plugin-copy": "packages/esbuild-plugin-copy",
     "mongoose-explain": "packages/mongoose-explain"
   }
 }

@@ -1,0 +1,62 @@
+{
+  "root": "packages/esbuild-plugin-copy",
+  "sourceRoot": "packages/esbuild-plugin-copy/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/esbuild-plugin-copy",
+        "main": "packages/esbuild-plugin-copy/src/index.ts",
+        "tsConfig": "packages/esbuild-plugin-copy/tsconfig.lib.json",
+        "assets": ["packages/esbuild-plugin-copy/*.md", "packages/esbuild-plugin-copy/LICENSE"],
+        "updateBuildableProjectDepsInPackageJson": false
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "commitMessageFormat": "chore(${projectName}): release version ${version}",
+        "baseBranch": "main",
+        "push": true,
+        "postTargets": ["esbuild-plugin-copy:publish", "esbuild-plugin-copy:github"]
+      }
+    },
+    "publish": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notes": "${notes}"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/esbuild-plugin-copy/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/esbuild-plugin-copy"],
+      "options": {
+        "jestConfig": "packages/esbuild-plugin-copy/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ghostjs/esbuild-plugin-copy": ["packages/esbuild-plugin-copy/src/index.ts"],
       "@ghostjs/mongoose-explain": ["packages/mongoose-explain/src/index.ts"]
     }
   },
