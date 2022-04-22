@@ -1,0 +1,37 @@
+{
+  "name": "@ghostjs/esbuild-plugin-copy",
+  "version": "0.0.1",
+  "description": "An esbuild for copying files, which supports watch mode",
+  "keywords": [
+    "esbuild",
+    "plugin",
+    "copy",
+    "watch",
+    "rename",
+    "transform"
+  ],
+  "bugs": "https://github.com/ghost91-/ghostjs/issues",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Johannes Loher",
+      "email": "johannes.loher@fg4f.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghost91-/ghostjs/tree/main/packages/esbuild-plugin-copy"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "anymatch": "^3.1.2",
+    "chokidar": "^3.5.3",
+    "fs-extra": "^10.1.0",
+    "glob-parent": "^6.0.2",
+    "is-glob": "^4.0.3",
+    "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
+    "esbuild": "^0.14.38"
+  }
+}

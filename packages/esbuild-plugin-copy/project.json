@@ -1,15 +1,15 @@
 {
-  "root": "packages/mongoose-explain",
-  "sourceRoot": "packages/mongoose-explain/src",
+  "root": "packages/esbuild-plugin-copy",
+  "sourceRoot": "packages/esbuild-plugin-copy/src",
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/mongoose-explain",
-        "main": "packages/mongoose-explain/src/index.ts",
-        "tsConfig": "packages/mongoose-explain/tsconfig.lib.json",
-        "assets": ["packages/mongoose-explain/*.md", "packages/mongoose-explain/LICENSE"],
+        "outputPath": "dist/packages/esbuild-plugin-copy",
+        "main": "packages/esbuild-plugin-copy/src/index.ts",
+        "tsConfig": "packages/esbuild-plugin-copy/tsconfig.lib.json",
+        "assets": ["packages/esbuild-plugin-copy/*.md", "packages/esbuild-plugin-copy/LICENSE"],
         "updateBuildableProjectDepsInPackageJson": false
       }
     },
@@ -20,7 +20,7 @@
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
         "baseBranch": "main",
         "push": true,
-        "postTargets": ["mongoose-explain:publish", "mongoose-explain:github"]
+        "postTargets": ["esbuild-plugin-copy:publish", "esbuild-plugin-copy:github"]
       }
     },
     "publish": {
@@ -46,14 +46,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/mongoose-explain/**/*.ts"]
+        "lintFilePatterns": ["packages/esbuild-plugin-copy/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/mongoose-explain"],
+      "outputs": ["coverage/packages/esbuild-plugin-copy"],
       "options": {
-        "jestConfig": "packages/mongoose-explain/jest.config.ts",
+        "jestConfig": "packages/esbuild-plugin-copy/jest.config.ts",
         "passWithNoTests": true
       }
     }
