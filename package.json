@@ -16,7 +16,7 @@
     "@commitlint/cli": "16.2.3",
     "@commitlint/config-conventional": "16.2.1",
     "@jscutlery/semver": "2.22.0",
-    "@nrwl/cli": "13.10.3",
+    "@nrwl/cli": "14.0.1",
     "@nrwl/eslint-plugin-nx": "14.0.1",
     "@nrwl/jest": "14.0.1",
     "@nrwl/js": "14.0.1",
