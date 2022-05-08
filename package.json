@@ -10,7 +10,7 @@
   "devDependencies": {
     "@commitlint/cli": "16.2.4",
     "@commitlint/config-conventional": "16.2.4",
-    "@jscutlery/semver": "2.23.3",
+    "@jscutlery/semver": "2.23.4",
     "@nrwl/cli": "14.1.4",
     "@nrwl/eslint-plugin-nx": "14.1.4",
     "@nrwl/jest": "14.1.4",
