@@ -28,7 +28,7 @@
     "eslint-config-prettier": "8.5.0",
     "husky": "8.0.1",
     "jest": "27.5.1",
-    "lint-staged": "12.4.2",
+    "lint-staged": "12.4.3",
     "mongodb": "4.6.0",
     "mongodb-memory-server": "8.6.0",
     "mongoose": "6.3.4",
