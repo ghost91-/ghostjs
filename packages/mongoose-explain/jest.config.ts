@@ -13,4 +13,5 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/packages/mongoose-explain',
   preset: '../../jest.preset.ts',
+  resolver: './jest.resolver.js',
 };
