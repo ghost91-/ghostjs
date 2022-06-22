@@ -1,5 +1,5 @@
 {
-  "root": "packages/mongoose-explain",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/mongoose-explain/src",
   "targets": {
     "build": {
