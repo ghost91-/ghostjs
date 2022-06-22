@@ -2,5 +2,6 @@
   "version": 2,
   "projects": {
     "mongoose-explain": "packages/mongoose-explain"
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }
