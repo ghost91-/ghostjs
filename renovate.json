@@ -3,8 +3,7 @@
   "extends": ["config:js-lib", ":automergeAll"],
   "packageRules": [
     {
-      "matchPackagePatterns": "^@typescript-eslint",
-      "matchUpdateTypes": ["major", "minor"],
+      "matchPackagePatterns": ["^@typescript-eslint", "^eslint$"],
       "enabled": false
     }
   ]

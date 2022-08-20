@@ -1,0 +1,20 @@
+name: Checks
+
+description: Perform checks
+
+runs:
+  using: composite
+
+  steps:
+    - name: Depcheck
+      shell: bash
+      run: npm run depcheck
+    - name: Lint
+      shell: bash
+      run: npx nx affected --target=lint --parallel=3
+    - name: Build
+      shell: bash
+      run: npx nx affected --target=build --parallel=3
+    - name: Test
+      shell: bash
+      run: npx nx affected --target=test --parallel=2
