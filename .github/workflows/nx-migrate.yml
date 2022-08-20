@@ -1,0 +1,99 @@
+name: 'Nx migrate'
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+env:
+  node: 16
+
+jobs:
+  nx-migrate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup git user to "🤖 ghostjs Bot"
+        shell: bash
+        run: git config user.email "-" && git config user.name "🤖 ghostjs Bot"
+
+      - name: Use Node.js ${{ env.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node }}
+          cache: 'npm'
+
+      - name: Check if nrwl monorepo is outdated
+        id: nrwl-monorepo-outdated
+        run: |
+          IS_OUTDATED=$(test ! -z "$(npm outdated @nrwl/workspace)" && echo true || echo false)
+          echo $IS_OUTDATED
+          echo "::set-output name=outdated::$IS_OUTDATED"
+
+      - name: Update nrwl monorepo
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true'
+        run: npx nx migrate latest
+
+      - name: Install dependencies
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true'
+        run: npm install
+
+      - name: Check if has migrations
+        id: nrwl-monorepo-has-migrations
+        run: |
+          HAS_MIGRATIONS=$(test -f migrations.json && echo true || echo false)
+          echo $HAS_MIGRATIONS
+          echo "::set-output name=has_migrations::$HAS_MIGRATIONS"
+      - name: Run nrwl migrations
+        if: steps.nrwl-monorepo-has-migrations.outputs.has_migrations == 'true'
+        run: npx nx migrate --run-migrations
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Checks
+        id: checks
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true'
+        continue-on-error: true
+        uses: ./.github/actions/checks
+
+      - name: Commit changes
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true'
+        run: |
+          VERSION=$(jq -r '.devDependencies | .["@nrwl/workspace"]' package.json)
+          git add .
+          [[ $(git status --porcelain) ]] && git commit -m "chore(deps): update nrwl monorepo to v${VERSION}" || echo "nothing to commit"
+
+      - name: Remove migrations.json & commit
+        if: steps.nrwl-monorepo-has-migrations.outputs.has_migrations == 'true'
+        run: |
+          git rm -f migrations.json
+          git commit --amend --no-edit
+
+      - name: Push changes
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true' && steps.test.outcome == 'success'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          force: true
+          tags: true
+
+      - name: Create PR
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true' && steps.test.outcome != 'success'
+        run: |
+          VERSION=$(jq -r '.devDependencies | .["@nrwl/workspace"]' package.json)
+          BRANCH="update-nrwl-monorepo-${VERSION}"
+          git checkout -b "${BRANCH}"
+          git push -f --set-upstream origin "${BRANCH}"
+          PR=$(gh pr view "${BRANCH}")
+          if [[ $PR == *"no pull requests found"* ]]; then
+            gh pr create -t "Update nrwl monorepo to v${VERSION}" -b "Update nrwl monorepo to v${VERSION}."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

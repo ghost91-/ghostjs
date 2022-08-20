@@ -3,26 +3,7 @@ name: Checks
 on: [push, pull_request]
 
 jobs:
-  depcheck:
-    runs-on: ubuntu-latest
-
-    env:
-      node: 16
-
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-      - name: Use Node.js ${{ env.node }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.node }}
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Run depcheck
-        run: npm run depcheck
-
-  build:
+  checks:
     runs-on: ubuntu-latest
 
     strategy:
@@ -39,57 +20,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
       - name: Install dependencies
         run: npm ci
-      - name: Build project
-        run: npx nx affected --target=build --parallel=3
-
-  lint:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node: [16, 18]
-
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: 'npm'
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
-      - name: Install dependencies
-        run: npm ci
-      - name: Lint project
-        run: npx nx affected --target=lint --parallel=3
-
-  test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node: [16, 18]
-
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: 'npm'
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
-      - name: Install dependencies
-        run: npm ci
-      - name: Test project
-        run: npx nx affected --target=test --parallel=2
+      - name: Checks
+        uses: ./.github/actions/checks
