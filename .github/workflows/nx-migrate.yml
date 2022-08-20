@@ -49,11 +49,13 @@ jobs:
           HAS_MIGRATIONS=$(test -f migrations.json && echo true || echo false)
           echo $HAS_MIGRATIONS
           echo "::set-output name=has_migrations::$HAS_MIGRATIONS"
+
       - name: Run nrwl migrations
         if: steps.nrwl-monorepo-has-migrations.outputs.has_migrations == 'true'
         run: npx nx migrate --run-migrations
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true'
         uses: nrwl/nx-set-shas@v2
 
       - name: Checks
@@ -76,7 +78,7 @@ jobs:
           git commit --amend --no-edit
 
       - name: Push changes
-        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true' && steps.test.outcome == 'success'
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true' && steps.checks.outcome == 'success'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -85,7 +87,7 @@ jobs:
           tags: true
 
       - name: Create PR
-        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true' && steps.test.outcome != 'success'
+        if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true' && steps.checks.outcome != 'success'
         run: |
           VERSION=$(jq -r '.devDependencies | .["@nrwl/workspace"]' package.json)
           BRANCH="update-nrwl-monorepo-${VERSION}"
