@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'mongoose-explain',
 
   testEnvironment: 'node',
@@ -12,6 +13,6 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/packages/mongoose-explain',
-  preset: '../../jest.preset.ts',
+  preset: '../../jest.preset.js',
   resolver: './jest.resolver.js',
 };
