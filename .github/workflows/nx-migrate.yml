@@ -56,7 +56,7 @@ jobs:
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         if: steps.nrwl-monorepo-outdated.outputs.outdated == 'true'
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
 
       - name: Checks
         id: checks
