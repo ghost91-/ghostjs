@@ -17,7 +17,7 @@
     "@nrwl/js": "14.7.3",
     "@nrwl/linter": "14.7.3",
     "@nrwl/workspace": "14.7.3",
-    "@types/jest": "29.0.0",
+    "@types/jest": "29.0.1",
     "@types/node": "16.11.58",
     "@types/semver": "7.3.12",
     "@typescript-eslint/eslint-plugin": "5.33.1",
