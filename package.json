@@ -18,7 +18,7 @@
     "@nrwl/linter": "14.7.13",
     "@nrwl/workspace": "14.7.13",
     "@types/jest": "29.0.3",
-    "@types/node": "16.11.61",
+    "@types/node": "16.11.62",
     "@types/semver": "7.3.12",
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
