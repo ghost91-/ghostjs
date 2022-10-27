@@ -19,7 +19,7 @@
     "@nrwl/workspace": "15.0.3",
     "@types/jest": "29.2.0",
     "@types/node": "18.11.7",
-    "@types/semver": "7.3.12",
+    "@types/semver": "7.3.13",
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "chalk": "4.1.2",
