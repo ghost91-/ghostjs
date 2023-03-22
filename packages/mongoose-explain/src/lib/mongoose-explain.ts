@@ -1,7 +1,7 @@
 import { Document, ExplainVerbosity } from 'mongodb';
 import type { Schema, PostMiddlewareFunction, Query } from 'mongoose';
 
-export type Verbosity = typeof ExplainVerbosity[keyof typeof ExplainVerbosity];
+export type Verbosity = (typeof ExplainVerbosity)[keyof typeof ExplainVerbosity];
 
 export type Operation = 'find' | 'findOne';
 
@@ -71,7 +71,7 @@ function getMiddleware(
     }
 
     const query = this.clone().explain(verbosity);
-    query.exec((_error, result) => {
+    query.exec().then((result) => {
       callback(result);
       next();
     });
