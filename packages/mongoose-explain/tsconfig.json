@@ -9,8 +9,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
-    "importsNotUsedAsValues": "error"
+    "noUncheckedIndexedAccess": true
   },
   "files": [],
   "include": [],
