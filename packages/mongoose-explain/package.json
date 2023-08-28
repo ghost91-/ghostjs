@@ -27,6 +27,6 @@
   },
   "peerDependencies": {
     "mongoose": "^7.0.0",
-    "mongodb": "^5.0.0"
+    "mongodb": "^5.0.0 || ^6.0.0"
   }
 }
