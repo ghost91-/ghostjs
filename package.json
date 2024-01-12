@@ -34,7 +34,7 @@
     "mongoose": "8.0.4",
     "ngx-deploy-npm": "7.1.0",
     "nx": "17.2.8",
-    "prettier": "3.2.0",
+    "prettier": "3.2.1",
     "semver": "7.5.4",
     "ts-jest": "29.1.1",
     "ts-node": "10.9.2",
