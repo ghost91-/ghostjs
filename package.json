@@ -29,7 +29,7 @@
     "husky": "9.0.11",
     "jest": "29.7.0",
     "lint-staged": "15.2.2",
-    "mongodb": "6.4.0",
+    "mongodb": "6.5.0",
     "mongodb-memory-server": "9.1.7",
     "mongoose": "8.2.1",
     "ngx-deploy-npm": "8.0.1",
