@@ -30,7 +30,7 @@
     "jest": "29.7.0",
     "lint-staged": "16.1.6",
     "mongodb": "6.19.0",
-    "mongodb-memory-server": "10.2.0",
+    "mongodb-memory-server": "10.2.1",
     "mongoose": "8.18.1",
     "ngx-deploy-npm": "9.0.0",
     "nx": "20.0.0",
