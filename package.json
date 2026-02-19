@@ -8,8 +8,8 @@
   },
   "private": true,
   "devDependencies": {
-    "@commitlint/cli": "20.4.1",
-    "@commitlint/config-conventional": "20.4.1",
+    "@commitlint/cli": "20.4.2",
+    "@commitlint/config-conventional": "20.4.2",
     "@jscutlery/semver": "5.7.1",
     "@nrwl/cli": "15.9.3",
     "@nrwl/eslint-plugin-nx": "19.7.4",
