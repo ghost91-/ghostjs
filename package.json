@@ -31,7 +31,7 @@
     "lint-staged": "17.0.6",
     "mongodb": "7.2.0",
     "mongodb-memory-server": "11.2.0",
-    "mongoose": "9.5.0",
+    "mongoose": "9.6.3",
     "ngx-deploy-npm": "9.0.0",
     "nx": "20.0.0",
     "prettier": "3.8.3",
