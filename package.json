@@ -33,7 +33,7 @@
     "mongodb-memory-server": "11.2.0",
     "mongoose": "9.5.0",
     "ngx-deploy-npm": "9.0.0",
-    "nx": "20.0.0",
+    "nx": "23.1.0",
     "prettier": "3.9.6",
     "semver": "7.8.5",
     "ts-jest": "29.4.12",
